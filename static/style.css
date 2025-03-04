@@ -1,0 +1,23 @@
+body {
+    background: url('https://source.unsplash.com/1600x900/?marble,white') no-repeat center center fixed;
+    background-size: cover;
+}
+
+h1 {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: 600;
+}
+
+input {
+    background: transparent;
+    border: none;
+    font-size: 16px;
+}
+
+button {
+    transition: background 0.3s ease-in-out;
+}
+
+button:hover {
+    background: #444;
+}
