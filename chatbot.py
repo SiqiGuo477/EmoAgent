@@ -6,7 +6,8 @@ from dotenv import load_dotenv
 load_dotenv()
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
-openai.api_key = OPENAI_API_KEY
+# Create OpenAI client (New API Format)
+client = openai.OpenAI(api_key=OPENAI_API_KEY)
 
 def chatbot():
     print("Chatbot: Hello! Type 'exit' to end the chat.")
@@ -16,11 +17,12 @@ def chatbot():
             print("Chatbot: Goodbye!")
             break
 
-        response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",
+        response = client.chat.completions.create(  # New API method
+            model="gpt-4o",
             messages=[{"role": "user", "content": user_input}]
         )
-        print("Chatbot:", response["choices"][0]["message"]["content"])
+
+        print("Chatbot:", response.choices[0].message.content)
 
 if __name__ == "__main__":
     chatbot()
